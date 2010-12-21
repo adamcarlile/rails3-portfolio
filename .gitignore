@@ -5,4 +5,6 @@ tmp/**/*
 .DS_Store
 .rspec
 .sass-cache
-
+public/assets
+public/ckeditor_assets
+public/stylesheets
