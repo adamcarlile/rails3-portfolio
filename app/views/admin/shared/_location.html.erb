@@ -1,0 +1,58 @@
+<% content_for :head do %>
+<%= google_maps_javascript %>
+<script>
+
+// fix precision of reported Lat/Lng 
+function fix6ToString(n) {
+	return n.toFixed(6).toString();
+}
+
+$(document).ready(function(){
+	if (GBrowserIsCompatible()) {
+		// Start processing the map
+		map = new GMap2(document.getElementById("mapcanvas"));
+		GEvent.addListener(map, "moveend", function() {
+			var center = map.getCenter();
+		});
+		<% if resource.lng and resource.lat %>
+		var LRPoint = new GLatLng(<%= resource.lat %>,<%= resource.lng %>);
+		var CentrePoint = new GLatLng(<%= resource.lat %>,<%= resource.lng %>);
+		<% else %>
+		var LRPoint = new GLatLng(53.744835,-0.345014);
+		var CentrePoint = new GLatLng(53.744835,-0.345014);
+		<% end %>
+		map.addMapType(G_PHYSICAL_MAP);
+		map.addControl(new GSmallMapControl());
+		map.setCenter(CentrePoint,13);
+		map.checkResize();
+		marker = new GMarker(LRPoint, {draggable: true});
+		GEvent.addListener(marker, "click", function() {
+			var point = marker.getPoint();
+			$('#<%= "#{resource_class.to_s.downcase}_lng" %>').val(fix6ToString(point.lng()));
+			$('#<%= "#{resource_class.to_s.downcase}_lat" %>').val(fix6ToString(point.lat()));
+		});
+		GEvent.addListener(marker, "dragstart", function() {
+			map.closeInfoWindow();
+		});
+		GEvent.addListener(marker, "dragend", function() {
+			var point = marker.getPoint();
+			$('#<%= "#{resource_class.to_s.downcase}_lng" %>').val(fix6ToString(point.lng()));
+			$('#<%= "#{resource_class.to_s.downcase}_lat" %>').val(fix6ToString(point.lat()));
+		});
+		map.addOverlay(marker);
+		GEvent.trigger(marker,'click'); 
+		GEvent.trigger(map,'moveend');
+		$('#tabs').bind('tabsshow', function(event, ui) {
+			map.checkResize();
+		});
+	}
+})
+</script>
+<% end %>
+<div id="mapcanvas" style="height:400px;width:100%">
+	
+</div>
+<%= f.input :lng, :as => :hidden %>
+<%= f.input :lat, :as => :hidden %>
+
+

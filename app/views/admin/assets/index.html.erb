@@ -1,0 +1,25 @@
+<table cellspacing="0">
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th width="80%">Filename</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% collection.each do |item| %>
+		<tr>
+			<td>
+				<%= image_tag item.data(:thumb) %>
+			</td>
+			<td>
+				<%= item.filename %>
+			</td>
+			<td>
+				<%= link_to 'Edit', edit_resource_url(item) %>&nbsp;
+				<%= button_to 'Delete', resource_url(item), :method => :delete %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

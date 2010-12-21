@@ -1,0 +1,15 @@
+<% collection.each do |post| %>
+	<article id="<%= post.to_param %>" class="post">
+		<div class="datebox">
+			<span class="month"><%= post.created_at.strftime("%b") %></span>
+			<span class="day"><%= post.created_at.day %></span>
+			<span class="year"><%= post.created_at.year %></span>
+		</div>
+		<h1><%= post.title %></h1>
+		<div class="cms-content">
+			<%= raw post.body %>
+		</div>
+		<%= render_tag_list(post.tag_list) %>
+	</article>
+<% end %>
+

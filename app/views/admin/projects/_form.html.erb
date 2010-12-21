@@ -1,0 +1,10 @@
+<%= tabs_for do |tab| %>
+	<% tab.create('details','Details') do %>
+		<%= f.input :title %>
+		<%= f.cktext_area :about, :height => '300px' %>
+	<% end %>
+	<% tab.create('attachments', 'Attachments') do %>
+		<%= f.association :assets, :as => :check_boxes %>
+	<% end %>
+<% end %>
+<%= f.button :submit %>

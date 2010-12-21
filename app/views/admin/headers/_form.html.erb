@@ -1,0 +1,16 @@
+<%= tabs_for do |tab| %>
+	<% tab.create('details','Details') do %>
+		<%= f.input :title %>
+		<%= f.input :strapline, :as => :text %>				
+	<% end %>
+	<% tab.create('attachments', 'Attachments') do %>
+		<%= f.association :picture, :as => :radio %>
+	<% end %>
+	<% tab.create('location', 'Location') do %>
+		<%= render :partial => '/admin/shared/location', :locals => {:f => f}%>
+	<% end %>
+<% end %>
+<%= f.button :submit %>
+
+
+

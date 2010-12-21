@@ -1,0 +1,17 @@
+@mixin titlecase($size, $spacing, $leading)
+	color: #ffffff
+	font:
+		size: $size
+		weight: bold
+	text:
+		decoration: none
+		shadow: -1px -1px 0px #979790
+	letter-spacing: $spacing
+	line-height: $leading
+	
+@mixin bodycase($size)
+	color: #393939
+	font:
+		size: $size
+		family: Georgia, serif
+	line-height: 1.3em

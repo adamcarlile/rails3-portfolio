@@ -1,0 +1,8 @@
+<%= tabs_for do |tab| %>
+	<% tab.create('details','Details') do %>
+		<%= f.input :title %>
+		<%= f.input :tag_list, :input_html => { :class => 'tag-select' } %>
+		<%= f.cktext_area :body, :height => '300px' %>
+	<% end %>
+<% end %>
+<%= f.button :submit %>

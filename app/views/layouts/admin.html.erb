@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio</title>
+  <%= stylesheet_link_tag 'admin', 'buttons' %>
+  <%= javascript_include_tag 'jquery/jquery.min', 'jquery/jquery.ui', 'ckeditor/ckeditor', 'admin' %>
+  <%= csrf_meta_tag %>
+	<%= yield :head %>
+</head>
+<body>
+	<div id="admin">
+		<header>
+			<%= raw user_status %>
+			<div class="branding">
+				<h1><%= SITE_NAME %></h1>
+				<p><%= @page_title %></p>
+			</div>
+			<nav>
+				<%= render :partial => '/admin/shared/tabs' %>
+			</nav>
+		</header>
+		<div id="body">
+			<div class="left">
+				<% if (defined? resource_class) %>
+				<ul>
+					<%= control_link("#{resource_class.to_s.pluralize}", collection_url) %>
+					<%= control_link("New #{resource_class}", new_resource_url) %>
+					<%= yield :controls %>
+				</ul>
+				<% end %>
+			</div>
+			<div class="right">
+				<%= yield %>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
