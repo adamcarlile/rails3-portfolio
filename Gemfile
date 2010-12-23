@@ -8,7 +8,7 @@ gem 'inherited_resources'
 gem 'simple_form'
 gem 'builder'
 gem 'compass'
-gem 'ckeditor', '3.4.2.pre'
+gem 'ckeditor', '3.4.3'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 
