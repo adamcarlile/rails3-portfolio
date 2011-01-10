@@ -8,7 +8,7 @@ gem 'inherited_resources'
 gem 'simple_form'
 gem 'builder'
 gem 'compass'
-gem 'ckeditor', :git => 'git://github.com/galetahub/rails-ckeditor.git', :branch => 'rails3'
+gem 'ckeditor', :git => 'git://github.com/Frozenproduce/rails-ckeditor.git', :branch => 'rails3'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
 

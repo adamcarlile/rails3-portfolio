@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/galetahub/rails-ckeditor.git
-  revision: d01be0362719be9634f13d244f596f59c272a0a4
+  remote: git://github.com/Frozenproduce/rails-ckeditor.git
+  revision: 23b331c5a52c4af9c0d42c780a2e2685e743db2a
   branch: rails3
   specs:
     ckeditor (3.5.0)

@@ -14,4 +14,9 @@ Portfolio::Application.routes.draw do
     resources :projects
   end
 
+  namespace :ckeditor do
+    resources :pictures, :only => [:index, :create, :destroy]
+    resources :attachments, :only => [:index, :create, :destroy]
+  end
+  
 end
