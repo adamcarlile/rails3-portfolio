@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101218230357) do
+ActiveRecord::Schema.define(:version => 20110227050818) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "attachable_id"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20101218230357) do
     t.string   "about"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "taggings", :force => true do |t|

@@ -9,10 +9,7 @@ class Picture < Asset
 	                    :thumb => '80x80#',
 	                    :hero => '920x300#',
 	                    :large => '800>',
-	                    :project_thumb => '220x175#' },
-	                  :convert_options => {
-	                    :project_thumb => '-rotate "-5" -gravity Center -crop "200x155+0+0"'
-	                  }
+	                    :project_thumb => '200x155#' }
 	
 	validates_attachment_size :data, :less_than => 5.megabytes
 	

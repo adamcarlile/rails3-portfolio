@@ -202,4 +202,33 @@ div.datebox
 			font-size: 18px
 			line-height: 1em
 			padding-top: 2px
+			
+section#projects
+
+	div.intro
+		width: 220px
+		margin-right: 20px
+		float: left
 		
+		h2
+			@include titlecase(30px, -1px, 32px)
+		
+		p
+			@include bodycase(14px)
+			
+	ul.project-list
+		float: left
+		width: 700px
+		@include pie-clearfix	
+		
+		li
+			background-color: #ffffff
+			@include box-shadow(#b0b1a8, 0px, 0px, 20px)
+			padding: 10px
+			position: relative
+			margin-left: 20px
+			float: left
+			
+			&:first-child
+				margin-left: 0px
+	

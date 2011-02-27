@@ -1,0 +1,7 @@
+<%= tabs_for do |tab| %>
+	<% tab.create('details','Details') do %>
+		<%= f.input :data, :as => :file %>
+		<%= resource.to_json %>
+	<% end %>
+<% end %>
+<%= f.button :submit %>
