@@ -38,10 +38,5 @@ function removeOnState(element){
 
 $(document).ready(function(){
 	$('.lightbox a').fancybox({
-	})
-	
-	googleMapHeader('map_canvas')
-	
-	toggleMapState('li.map a', 'ul.tools', 200)
-	
+	})	
 })

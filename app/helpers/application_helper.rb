@@ -1,4 +1,5 @@
 module ApplicationHelper
+  include AC::ToSlug
   
   def user_status
     xhtml = Builder::XmlMarkup.new :target => out=(''), :indent => 2
@@ -24,6 +25,17 @@ module ApplicationHelper
       %(<script src="http://maps.google.com/maps?file=api&v=2&key=#{key}" type="text/javascript"></script>).html_safe
     else
       %(<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>).html_safe
+    end
+  end
+  
+  def render_tech_list(tags)
+    xhtml = Builder::XmlMarkup.new :target => out=(''), :indent => 2
+    xhtml.ul(:id => 'tech-tags') do |x|
+      tags.each do|tag|
+        x.li(:class => tag.to_s.to_url) do |l|
+          l << tag.name
+        end
+      end
     end
   end
   

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110227050818) do
+ActiveRecord::Schema.define(:version => 20110227234133) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "attachable_id"
@@ -18,6 +18,8 @@ ActiveRecord::Schema.define(:version => 20110227050818) do
     t.integer  "asset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "alternate"
+    t.text     "caption"
   end
 
   create_table "ckeditor_assets", :force => true do |t|

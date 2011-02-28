@@ -9,7 +9,9 @@ class Picture < Asset
 	                    :thumb => '80x80#',
 	                    :hero => '920x300#',
 	                    :large => '800>',
-	                    :project_thumb => '200x155#' }
+	                    :project_thumb => '200x155#',
+	                    :project_large => '920x600#',
+	                    :project_widethumb => '440x120#' }
 	
 	validates_attachment_size :data, :less_than => 5.megabytes
 	

@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def homepage
     @projects = Project.all
+    @posts = Tumblr.feed[0..1]
   end
 
 end

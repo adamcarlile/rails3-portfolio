@@ -1,3 +1,6 @@
+<% content_for :hero do %>
+	<%= render :partial => 'headers/header'%>
+<% end %>
 <section id="projects">
 	<div class="intro">
 		<h2>What I've Just Finished</h2>
@@ -5,5 +8,20 @@
 	</div>
 	<ul class="project-list">
 		<%= render :partial => 'project', :collection => @projects %>
+	</ul>
+</section>
+<section id="feed">
+	<ul>
+	<% @posts.each do |post| %>
+		<li>
+			<div class="datebox">
+				<span class="month"><%= post.published.to_time.strftime("%b") %></span>
+				<span class="day"><%= post.published.to_time.day %></span>
+				<span class="year"><%= post.published.to_time.year %></span>
+			</div>
+			<h2><%= link_to(truncate(post.title, :length => 40), post.url) %></h2>
+			<p><%= truncate(strip_tags(post.summary), :length => 170) %> <%= link_to 'read more', post.url %></p>
+		</li>
+	<% end %>
 	</ul>
 </section>

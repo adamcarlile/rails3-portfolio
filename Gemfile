@@ -11,6 +11,8 @@ gem 'compass'
 gem 'ckeditor', :git => 'git://github.com/Frozenproduce/rails-ckeditor.git', :branch => 'rails3'
 gem 'paperclip'
 gem 'acts-as-taggable-on'
+gem 'feedzirra'
+gem 'stringex'
 
 gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 

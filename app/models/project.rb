@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   has_many :attachments, :as => :attachable
   has_many :assets, :through => :attachments
-  
+    
   acts_as_taggable_on :tag
   
   before_save :setup_slug
