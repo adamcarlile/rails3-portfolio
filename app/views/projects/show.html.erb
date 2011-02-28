@@ -1,0 +1,20 @@
+<% content_for :hero do %>
+	<section id="hero">
+		<%= image_tag resource.attachments.first.asset.url(:hero)%>
+		<div class="caption">
+			<h2><%= resource.title %></h2>
+			<%= raw resource.about %>
+		</div>
+	</section>
+<% end %>
+<section id="project">
+	<div class="technologies">
+		<h3>Technologies</h3>
+		<%= raw render_tech_list(resource.tag) %>
+	</div>
+	<ul class="thumbs">
+		<% resource.attachments.each do |file| %>
+			<%= content_tag(:li, link_to(image_tag(file.asset.url(:project_thumb)), file.asset.url(:project_large)), :class => cycle('lightbox first', 'lightbox', 'lightbox'))%>
+		<% end %>
+	</ul>
+</section>

@@ -1,0 +1,24 @@
+<section id="hero">
+	<%= image_tag @hero_image.picture.url(:hero) %>
+	<div class="caption">
+		<h2><%= @hero_image.title %></h2>
+		<%= simple_format @hero_image.strapline %>
+	</div>
+	<ul class="tools">
+		<li class="zoom lightbox"><%= link_to "Zoom", @hero_image.picture.url(:large) %></li>
+		<li class="map">
+			<a href="#">Location</a>
+			<div id="map_canvas">
+				
+			</div>
+		</li>
+	</ul>
+</section>
+<% content_for :javascript do %>
+<script type="text/javascript">
+$(document).ready(function(){
+	googleMapHeader('map_canvas')
+	toggleMapState('li.map a', 'ul.tools', 200)
+})
+</script>
+<% end %>

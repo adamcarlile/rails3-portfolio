@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Portfolio</title>
+  <%= stylesheet_link_tag 'screen' %>
+	<%= google_maps_javascript(3) %>
+	<script type="text/javascript">
+		var mapLatlng = new google.maps.LatLng(<%= @hero_image.lat_lng %>);
+		var mapMarkerTitle = "<%= @hero_image.title %>"
+	</script>
+  <%= javascript_include_tag 'jquery/jquery.min', 'jquery/jquery.fancybox', 'rails', 'application' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+	<div class="wrapper">
+		<header>
+			<h1><%= link_to(raw('Adam<br />Carlile'), root_path)%></h1>
+			<p class="strap">Hello, I'm Adam Carlile, I'm a web designer and developer, currently living in Whistler, BC, Canada</p>
+			<nav>
+				<ul>
+					<li>
+						<%= link_to 'Home', root_path %>
+					</li>
+					<li>
+						<%= link_to 'Portfolio', projects_path %>
+					</li>
+					<li>
+						<%= link_to 'Blog', 'http://blog.adamcarlile.com' %>
+					</li>
+				</ul>
+			</nav>
+		</header>
