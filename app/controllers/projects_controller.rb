@@ -7,5 +7,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     @posts = Tumblr.feed[0..1]
   end
-
+  
+  private
+  
+    def resource
+      @project = Project.find_by_slug(params[:id])
+    end
 end

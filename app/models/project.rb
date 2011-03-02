@@ -18,7 +18,8 @@ class Project < ActiveRecord::Base
   end
   
   def to_param
-    "#{id}-#{self.to_slug}"
+    title.to_url
   end
+  
   
 end

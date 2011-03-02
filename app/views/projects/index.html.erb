@@ -1,7 +1,7 @@
 <section id="projects-index">
 	<ul>
 	<% collection.each do |project| %>
-		<%= content_tag(:li, link_to(image_tag(project.attachments.first.asset.url(:project_widethumb)), resource_path(project)), :class => cycle('first', ''))%>
+		<%= raw portfolio_rollover_link(project, :image_type => :project_widethumb, :cycle_array => ['first', 'second']) %>
 	<% end %>
 	</ul>
 </section>

@@ -39,4 +39,28 @@ module ApplicationHelper
     end
   end
   
+  def portfolio_rollover_link(object, options={})
+    default_options = { :image_type => :project_thumb, 
+                        :cycle_array => ['first', 'second', 'third'], 
+                        :url => project_path(object),
+                        :title => object.title}
+    options = default_options.update(options)
+    # End Config merge
+    
+    return unless object.is_a? Project
+    xhtml = Builder::XmlMarkup.new :target => out=(''), :indent => 2
+    xhtml.li(:class => cycle(*options[:cycle_array])) do |x|
+      x << render_portfolio_link(object.attachments.first.asset.url(options[:image_type]), options[:url])
+      x.div(:class => 'overlay') do |overlay| 
+        overlay << content_tag(:h4, link_to(options[:title], options[:url]))
+        overlay << content_tag(:p, link_to(options[:subtitle], options[:url])) unless options[:subtitle].blank?
+      end
+    end
+    
+  end
+  
+  def render_portfolio_link(attachment, url)
+    link_to(image_tag(attachment), url)
+  end
+  
 end
